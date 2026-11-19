@@ -2,7 +2,7 @@
 
 FaceSwap is a native Mac app that blurs, pixelates, blacks out or swaps faces in real time. It also adds **FaceSwap Camera**, a virtual camera that Zoom, Meet, FaceTime, Teams and browsers can use.
 
-**Website and guide:** https://mrlynn.github.io/FaceSwap-app/
+**Website and guide:** https://macfaceswap.com/
 
 ## Download
 
