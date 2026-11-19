@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FaceSwap Guide</title>
+<meta name="description" content="How to install FaceSwap, add the face models, set up FaceSwap Camera for Zoom, Meet and FaceTime, and use every style, face and feature.">
+<link rel="icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="img/icon-256.png" alt=""><span>Face<b>Swap</b></span></a>
+    <div class="nav-links">
+      <a class="hide-sm" href="index.html#styles">Styles</a>
+      <a class="hide-sm" href="index.html#features">Features</a>
+      <a href="docs.html" style="color:var(--ink)">Guide</a>
+      <a class="btn btn-primary btn-sm" href="https://github.com/mrlynn/FaceSwap-app/releases/latest">Download</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap docs">
+  <aside class="toc">
+    <details open id="toc-details">
+      <summary>On this page</summary>
+      <ol>
+        <li><a href="#install">Install</a></li>
+        <li><a href="#models">Models</a></li>
+        <li><a href="#camera">FaceSwap Camera</a></li>
+        <li><a href="#window">The window</a></li>
+        <li><a href="#styles">Styles</a></li>
+        <li><a href="#faces">Faces and the gallery</a></li>
+        <li><a href="#mix">Mix</a></li>
+        <li><a href="#adjust">The Adjust card</a></li>
+        <li><a href="#looks">Looks and scenes</a></li>
+        <li><a href="#calls">Tools for calls</a></li>
+        <li><a href="#clips">Photos and clips</a></li>
+        <li><a href="#menubar">Menu bar mode</a></li>
+        <li><a href="#shortcuts">Keyboard shortcuts</a></li>
+        <li><a href="#mobile">iPhone and iPad</a></li>
+        <li><a href="#troubleshooting">Troubleshooting</a></li>
+        <li><a href="#privacy">Privacy and licences</a></li>
+      </ol>
+    </details>
+  </aside>
+
+  <main class="doc">
+    <div class="eyebrow">Guide</div>
+    <h1>Using FaceSwap</h1>
+    <p class="intro">Everything from the first install to the finer settings. If you only read one section, read <a href="#camera">FaceSwap Camera</a>: that’s how your video apps see the result.</p>
+
+    <!-- Install -->
+    <h2 id="install">Install</h2>
+    <p>FaceSwap needs <strong>macOS 14 Sonoma or later</strong> on a Mac with <strong>Apple silicon</strong>. It’s signed with Developer ID and notarized by Apple, so it opens like any other downloaded app.</p>
+    <ol class="steps">
+      <li>Open the <a href="https://github.com/mrlynn/FaceSwap-app/releases/latest">latest release on GitHub</a> and download one of the following:
+        <ul>
+          <li><strong>FaceSwap-1.0.dmg</strong>: open it and drag FaceSwap to Applications.</li>
+          <li><strong>FaceSwap-1.0.zip</strong>: unzip it and move FaceSwap to Applications.</li>
+          <li><strong>FaceSwap-1.0.pkg</strong>: an installer that puts FaceSwap in Applications for you.</li>
+        </ul>
+      </li>
+      <li>Make sure the app is in <code>/Applications</code>. macOS only installs camera extensions from there.</li>
+      <li>Open FaceSwap and allow camera access when macOS asks.</li>
+      <li>Click <strong>Install FaceSwap Camera</strong> to add the virtual camera. See <a href="#camera">FaceSwap Camera</a>.</li>
+    </ol>
+    <p>Blur, Pixelate and Blackout work immediately. Swap and the face touch-ups need the <a href="#models">models</a>, which aren’t publicly available.</p>
+    <div class="note"><p><strong>Updates.</strong> FaceSwap tells you when a newer release is out: an <em>Update</em> button appears over the picture. To check yourself, choose <em>FaceSwap › Check for Updates…</em>. It opens the release page and never downloads or installs anything on its own. After an update, a short note lists what changed.</p></div>
+
+    <!-- Models -->
+    <h2 id="models">Models</h2>
+    <p>Swapping and touch-ups run on Core ML models that aren’t inside the app. Their upstream licences allow only non-commercial research and personal use (see <a href="#privacy">Privacy and licences</a>), so <strong>they aren’t part of the public download and can’t be shared openly</strong>. Without them, Blur, Pixelate, Blackout, lighting, backgrounds and every call tool still work, and Swap falls back to Blur.</p>
+    <p>If you’ve been given access to the model files, the app adds them like this:</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Feature</th><th>Enables</th><th>Download</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Face swap</strong></td><td>The Swap style, the gallery, Mix and looks</td><td>about 380 MB</td></tr>
+        <tr><td><strong>Face and hair touch-ups</strong></td><td>Hair and lip colour, teeth, eyes, skin (Swap and Touch Up)</td><td>about 45 MB</td></tr>
+        <tr><td><strong>Enhanced face detail</strong></td><td>Face detail: Enhanced</td><td>about 40 MB</td></tr>
+        <tr><td><strong>Best face detail</strong></td><td>Face detail: Best and Best every frame</td><td>about 175 MB</td></tr>
+      </tbody>
+    </table></div>
+    <ol class="steps">
+      <li>On first launch, the <strong>Set up FaceSwap</strong> window lists the features with their sizes and terms. You can open it again later from <em>Settings › Models</em> or <em>••• › Install Models…</em>.</li>
+      <li>Click <strong>Download</strong> beside each feature you want. Your browser fetches that feature’s files. This needs a GitHub account that has been given access; otherwise the page shows “Page not found”.</li>
+      <li>FaceSwap notices the files when they reach your Downloads folder. It checks each one against its expected size and hash, compiles it for your Mac, and turns the feature on without a restart.</li>
+    </ol>
+    <p>If the files are somewhere else, for example on a drive or fetched by hand from the release page, click <strong>Files Are Somewhere Else…</strong> and choose their folder. Picking Swap, or opening a panel whose models are missing, offers the same list. A model shared by two features is downloaded only once.</p>
+
+    <!-- Camera -->
+    <h2 id="camera">FaceSwap Camera</h2>
+    <p>FaceSwap Camera is a virtual camera that shows other apps exactly what the FaceSwap window shows: faces hidden or swapped, background, cards and reactions.</p>
+    <ol class="steps">
+      <li>In FaceSwap, click <strong>Install FaceSwap Camera</strong>.</li>
+      <li>macOS asks for approval. Open <em>System Settings › General › Login Items &amp; Extensions</em>, then under <em>Extensions › By Category › Camera Extensions</em> turn on FaceSwap.</li>
+      <li>In Zoom, Meet, FaceTime, Teams, Slack or your browser, choose <strong>FaceSwap Camera</strong> as the camera.</li>
+      <li>Keep FaceSwap running. When it isn’t, FaceSwap Camera shows a placeholder card instead of your picture.</li>
+    </ol>
+    <p>The green camera button at the top right of the window shows the camera’s status. Click it for setup help, the output resolution and mirroring. When something needs doing, such as <em>Approve in System Settings</em> or <em>Restart your Mac to finish</em>, the button turns into words that say so.</p>
+    <div class="note"><p><strong>Mirroring.</strong> Your preview is mirrored, like a mirror. FaceSwap Camera sends the true picture, so text behind you reads correctly to everyone else. You can change this under the camera button or in <em>Settings › Camera</em>.</p></div>
+
+    <!-- Window -->
+    <h2 id="window">The window</h2>
+    <p>The picture fills the window and the controls float over it. They fade when the pointer leaves the window and come back when you move or click. To keep them on screen, turn off <em>Settings › General › Hide the controls when the pointer is away</em>.</p>
+    <figure>
+      <div class="shot"><img src="img/swap-lavender.jpg" alt="The FaceSwap window in Swap mode, with the status bar, the face shelf and the dock" loading="lazy" width="1093" height="894"></div>
+      <figcaption>The status bar is at the top left, the camera and Adjust buttons at the top right, the face shelf above the dock, and the dock along the bottom.</figcaption>
+    </figure>
+    <ul>
+      <li><strong>Status bar</strong> (top left): what’s happening to faces. It reads <em>Hidden</em>, <em>Swapped</em>, or <em>Visible</em> in orange when your real face is going out. It also shows the live frame rate and delay, and <strong>Compare</strong>, which you hold to see the real camera. Compare only changes your preview, never FaceSwap Camera or clips.</li>
+      <li><strong>Top right</strong>: the FaceSwap Camera status and the <strong>Adjust</strong> button (<kbd>⌘I</kbd>).</li>
+      <li><strong>Strip</strong>: whatever the current style needs. In Swap, it’s the shelf of faces; in other styles, the sliders.</li>
+      <li><strong>Dock</strong>: the five styles on the left. On the right, the <strong>•••</strong> menu, the shutter and the record button.</li>
+    </ul>
+
+    <!-- Styles -->
+    <h2 id="styles">Styles</h2>
+    <div class="two-shots">
+      <div class="shot"><img src="img/style-blur.jpg" alt="Blur style" loading="lazy" width="1093" height="894"></div>
+      <div class="shot"><img src="img/style-pixelate.jpg" alt="Pixelate style" loading="lazy" width="1093" height="894"></div>
+      <div class="shot"><img src="img/style-blackout.jpg" alt="Blackout style" loading="lazy" width="1093" height="894"></div>
+      <div class="shot"><img src="img/style-touchup.jpg" alt="Touch Up style" loading="lazy" width="1093" height="894"></div>
+    </div>
+    <h3>Blur, Pixelate and Blackout</h3>
+    <p>These cover every face in the picture. <strong>Strength</strong> sets how heavy the effect is, and <strong>Coverage</strong> sets how far it reaches past the face. They use Apple’s built-in face detection and need no downloads. When a face is lost for a moment, it stays covered at its last position for 1.5 seconds.</p>
+    <h3>Swap</h3>
+    <p>Swap replaces your face with the one you choose while keeping your expression, head angle and lighting. It works at any head angle. If a frame can’t be swapped, that face is blurred rather than shown. Until the models are loaded or a face is chosen, Swap falls back to Blur.</p>
+    <h3>Touch Up</h3>
+    <p>Touch Up shows your own face, improved by the settings on the Adjust card’s Look page. Its dock button turns orange because it hides nothing. The strip offers quick <strong>Light</strong> and <strong>Smooth</strong> sliders.</p>
+
+    <!-- Faces -->
+    <h2 id="faces">Faces and the gallery</h2>
+    <p>In Swap, the shelf above the dock holds every face you can wear. The face you’re wearing is larger, and its name is shown above the row.</p>
+    <ul>
+      <li><strong>+</strong> uploads a face from your photo library or a file. You can also drop a photo onto the row of faces.</li>
+      <li><strong>✦ Presentable Me</strong> is your own face, evened out and lit with a gentle polish.</li>
+      <li><strong>The dice</strong> mixes two or three gallery faces at random into a face that belongs to nobody.</li>
+      <li>Press <kbd>1</kbd>–<kbd>9</kbd> to wear the first nine faces. Right-click a face to make it a <strong>favourite</strong>, and favourites come first.</li>
+      <li><strong>All Faces</strong> opens the gallery, where every face is shown large and named.</li>
+    </ul>
+    <figure>
+      <div class="shot"><img src="img/gallery.jpg" alt="The Choose a face gallery with a grid of named portraits" loading="lazy" width="1093" height="894"></div>
+      <figcaption>The gallery. Under it, <em>Portraits from…</em> points to a folder of your own.</figcaption>
+    </figure>
+    <h3>Your own portraits folder</h3>
+    <p>In the gallery, click <strong>Change…</strong> to choose a folder of portraits. Use one front-facing, well-lit person per file. FaceSwap reads them and tells you how many faces it found, and which files it skipped and why: no face, several faces, a face that’s too small, or a turned head. Click <strong>Refresh</strong> (<kbd>⌘R</kbd>) after you add or remove files. The file name becomes the face’s name, so <code>old-sailor.jpg</code> becomes “Old Sailor”.</p>
+    <div class="note"><p><strong>Use faces you have the right to use.</strong> The bundled gallery contains only generated portraits. When you add your own, don’t impersonate a real person without their consent.</p></div>
+
+    <!-- Mix -->
+    <h2 id="mix">Mix</h2>
+    <figure>
+      <div class="shot"><img src="img/mix.jpg" alt="The Mix panel with a Strength slider and a row of faces to blend in" loading="lazy" width="1093" height="894"></div>
+    </figure>
+    <p>Click <strong>Mix</strong> on the shelf. Mix only changes the identity given to the swap model, so it doesn’t slow anything down.</p>
+    <ul>
+      <li><strong>Strength</strong> slides from your own face (0%) to the chosen face (100%). FaceSwap reads your face from one camera frame. Click <strong>Read Again</strong> if your lighting or glasses change.</li>
+      <li><strong>Blend in a second face</strong> combines the chosen face with another gallery face, and the slider sets how much of each. Blending between a portrait and its older or younger version makes the face look older or younger.</li>
+    </ul>
+
+    <!-- Adjust -->
+    <h2 id="adjust">The Adjust card</h2>
+    <p>Click the Adjust button at the top right or press <kbd>⌘I</kbd>. The card opens over the picture, so you can see each change as you make it.</p>
+    <div class="two-shots">
+      <figure style="margin:0"><div class="shot"><img src="img/adjust-face.jpg" alt="Adjust card, Face page" loading="lazy" width="1093" height="894"></div><figcaption>Face</figcaption></figure>
+      <figure style="margin:0"><div class="shot"><img src="img/adjust-look.jpg" alt="Adjust card, Look page" loading="lazy" width="1093" height="894"></div><figcaption>Look</figcaption></figure>
+      <figure style="margin:0"><div class="shot"><img src="img/adjust-background.jpg" alt="Adjust card, Background page" loading="lazy" width="1093" height="894"></div><figcaption>Background</figcaption></figure>
+      <figure style="margin:0"><div class="shot"><img src="img/adjust-speed.jpg" alt="Adjust card, Speed page" loading="lazy" width="1093" height="894"></div><figcaption>Speed</figcaption></figure>
+    </div>
+    <h3>Face</h3>
+    <p>Your photo, your portraits folder, Mix, and the swap’s finish. The finish settings are folded shut by default:</p>
+    <ul>
+      <li><strong>Sharpness</strong>: brings back detail lost when the face is enlarged to fit the picture.</li>
+      <li><strong>Grain</strong>: adds camera-like noise so the face blends with the rest of the picture.</li>
+      <li><strong>Match skin colour</strong>: evens the swapped face’s colour with your camera.</li>
+      <li><strong>Show my mouth when open</strong> and <strong>Show hands in front of my face</strong>: let your real mouth and hands show through.</li>
+      <li><strong>Tracking smoothing</strong>: steadies the face when your head is still.</li>
+    </ul>
+    <h3>Look</h3>
+    <p>Light my face, smooth skin, hair colour, lip colour, whiten teeth and brighten eyes. Lighting works in every style. Hair, lips, teeth and eyes need the <em>Face and hair touch-ups</em> models. <strong>Turn All Off</strong> resets the page.</p>
+    <h3>Background</h3>
+    <p>Keep <strong>the room</strong>, or replace it with <strong>your picture</strong>, grey, white, black or a <strong>green screen</strong>, and blur it as much as you like. <strong>Hide other people</strong> shows or swaps only you, and blurs anyone else who comes into the picture. This page also has scenes and picture styles (Noir, Vintage, Cool, Vivid, Faded).</p>
+    <h3>Speed</h3>
+    <p><strong>Face detail</strong> trades frame rate for sharpness:</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Setting</th><th>What it does</th><th>Roughly, on an M4 Pro</th></tr></thead>
+      <tbody>
+        <tr><td>Off</td><td>The swap as the model makes it</td><td>about 18–20 fps</td></tr>
+        <tr><td>Enhanced</td><td>Redraws the face at 256 × 256</td><td>about 14.5 fps</td></tr>
+        <tr><td>Best</td><td>Redraws at 512 × 512 every other frame, blended so motion stays clean</td><td>about 14 fps</td></tr>
+        <tr><td>Best every frame</td><td>The sharpest result, using the Neural Engine alongside the GPU</td><td>slower on older Macs</td></tr>
+      </tbody>
+    </table></div>
+    <p>Under <em>Advanced</em>, you can choose where the swap model runs and how many faces it swaps.</p>
+
+    <!-- Looks -->
+    <h2 id="looks">Looks and scenes</h2>
+    <p>A <strong>look</strong> saves the face you’re wearing, including a mix or a random face, along with its strength and your look and background settings. Click <strong>Save Look</strong> on the shelf, or use <em>Looks › Save Current Look…</em>.</p>
+    <ul>
+      <li>Saved looks appear as chips above the strip. Click one to wear it, or right-click to delete it.</li>
+      <li><strong>Share a look</strong>: right-click it and choose Share to make a file. The person you send it to can drop it on their window, or add it from <em>••• › Add a Shared Look…</em>.</li>
+      <li><strong>Scenes</strong> (••• menu or the Background page): Film Noir, Seventies, Ice, Studio and Friday each set the picture style, background and light in one click.</li>
+    </ul>
+
+    <!-- Calls -->
+    <h2 id="calls">Tools for calls</h2>
+    <p>These are in the <strong>•••</strong> menu, and most have a shortcut that works from any app. Everything they add appears in FaceSwap Camera, so everyone on the call sees it.</p>
+    <h3>Quick cards <kbd>⌃⌥⌘K</kbd></h3>
+    <p>Put a message in your picture. <em>Back in</em> covers the picture and counts down. <em>Lost my audio</em>, <em>Listening, can’t talk</em>, <em>Bad connection</em> and your own words appear as a strip along the bottom.</p>
+    <h3>Follow Me <kbd>⌃⌥⌘F</kbd></h3>
+    <p>The picture crops and pans gently to keep you in the middle as you lean, stand up or move around.</p>
+    <h3>Presenter Mode <kbd>⌃⌥⌘P</kbd></h3>
+    <p>Choose <em>Show a Window in My Picture…</em> and pick a window: slides, a document or a browser tab. It becomes your picture, with you in a <strong>corner tile</strong> or <strong>cut out in front</strong> of it. This works in any meeting app, even ones without screen sharing.</p>
+    <h3>React to hand signs</h3>
+    <ul>
+      <li>👍 A thumbs-up sends thumbs floating up the picture.</li>
+      <li>✌️ Two fingers held up drops confetti.</li>
+      <li>✋ An open hand held up shows a raised-hand badge for as long as your hand is up.</li>
+    </ul>
+    <h3>Away card</h3>
+    <p>With <em>Away Card When I Step Out</em> on, the picture becomes a blurred card saying you’ll be back whenever you leave the frame. It disappears as soon as you return.</p>
+    <h3>Mark swapped video “Altered”</h3>
+    <p>Adds a small <em>Altered</em> label in a corner whenever a swap is going out, for when you want to use a swap openly.</p>
+    <h3>Borrow a Face From a Call</h3>
+    <p>Pick a meeting window, then one of the faces in it, and wear it for the rest of the session. The borrowed face can’t be saved, it lasts until you pick another face or quit, and the picture is marked <em>Altered</em> the whole time. Only do this with the person’s permission.</p>
+
+    <!-- Clips -->
+    <h2 id="clips">Photos and clips</h2>
+    <p>The <strong>shutter</strong> saves a still photo, and <em>File › Save Photo As…</em> does the same. The red <strong>record</strong> button (<kbd>⇧⌘R</kbd>) records what the window shows, with faces already hidden or swapped, to an MP4 with sound from your microphone. Clips stop by themselves after 30 seconds.</p>
+    <p>When a clip ends, a window plays it on a loop with <strong>Share…</strong>, <strong>Save As…</strong> and <strong>Delete</strong>. Until you share or save it, it’s only a temporary file.</p>
+    <ul>
+      <li><strong>Before/after wipe</strong> (Settings › Clips, or right-click the record button): the clip opens on the real camera for a second, then a white line sweeps across to reveal the swap. It’s off by default. While it’s off, your unaltered face is never recorded.</li>
+      <li>Clips aren’t mirrored, because they’re made for other people to watch.</li>
+    </ul>
+    <h3>Blur faces in a photo</h3>
+    <p>Choose <em>••• › Choose File…</em> or <em>Photos Library…</em>, or drop a photo anywhere on the window. Every style works on the still photo, and the shutter saves the result. Click <strong>Back to camera</strong> to go back to the live picture.</p>
+
+    <!-- Menu bar -->
+    <h2 id="menubar">Menu bar mode</h2>
+    <p>With <em>FaceSwap › Keep Running in Menu Bar</em> on (the default), closing the window leaves FaceSwap running as a menu bar icon with no Dock icon, still feeding FaceSwap Camera. From the menu you can switch styles and looks, black out, pause the camera (which turns its light off), reopen the window or quit.</p>
+
+    <!-- Shortcuts -->
+    <h2 id="shortcuts">Keyboard shortcuts</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Shortcut</th><th>Action</th><th>Works</th></tr></thead>
+      <tbody>
+        <tr><td><kbd>⌃⌥⌘B</kbd></td><td>Black out every face now; press again to go back</td><td>From any app</td></tr>
+        <tr><td><kbd>⌃⌥⌘1</kbd>–<kbd>9</kbd></td><td>Wear the faces in the row</td><td>From any app</td></tr>
+        <tr><td><kbd>⌃⌥⌘0</kbd></td><td>Presentable Me</td><td>From any app</td></tr>
+        <tr><td><kbd>⌃⌥⌘K</kbd></td><td>Quick card</td><td>From any app</td></tr>
+        <tr><td><kbd>⌃⌥⌘F</kbd></td><td>Follow Me</td><td>From any app</td></tr>
+        <tr><td><kbd>⌃⌥⌘P</kbd></td><td>Show a window in my picture / stop presenting</td><td>From any app</td></tr>
+        <tr><td><kbd>1</kbd>–<kbd>9</kbd></td><td>Wear the faces in the row (Swap)</td><td>In FaceSwap</td></tr>
+        <tr><td><kbd>⌘I</kbd></td><td>Show or hide the Adjust card</td><td>In FaceSwap</td></tr>
+        <tr><td><kbd>⇧⌘R</kbd></td><td>Record a clip</td><td>In FaceSwap</td></tr>
+        <tr><td><kbd>⌘R</kbd></td><td>Re-read your portraits folder</td><td>In the gallery</td></tr>
+        <tr><td><kbd>⌘,</kbd></td><td>Settings (Camera, Models, Clips, General)</td><td>In FaceSwap</td></tr>
+      </tbody>
+    </table></div>
+
+    <!-- Mobile -->
+    <h2 id="mobile">iPhone and iPad</h2>
+    <p>FaceSwap also runs on iPhone and iPad (iOS and iPadOS 17 or later) with the same styles, gallery, looks and clips. iOS doesn’t allow virtual cameras, so FaceSwap Camera is Mac-only. To add models on iPhone, use the download button in the top bar. There is no public iPhone or iPad download yet.</p>
+
+    <!-- Troubleshooting -->
+    <h2 id="troubleshooting">Troubleshooting</h2>
+    <h3>FaceSwap Camera doesn’t appear in my meeting app</h3>
+    <p>Check that FaceSwap is in <code>/Applications</code> and that the extension is approved in <em>System Settings › General › Login Items &amp; Extensions</em>. Then quit and reopen the meeting app; most apps only look for cameras when they start. If the camera button says <em>Restart your Mac to finish</em>, the camera extension was updated and macOS needs a restart to load the new version.</p>
+    <h3>The meeting shows a placeholder card instead of me</h3>
+    <p>FaceSwap isn’t running, or the camera is paused from the menu bar. Open FaceSwap, or choose <em>Resume Camera</em>.</p>
+    <h3>Swap shows a blur instead of a face</h3>
+    <p>The <em>Face swap</em> models aren’t installed (they aren’t in the public download) or are still loading, or no face is chosen yet. Open <em>Settings › Models</em>. A face the detector can’t see clearly, for example one that is very small or mostly hidden, is blurred instead.</p>
+    <h3>The frame rate drops in a dim room</h3>
+    <p>Many webcams halve their frame rate in low light to get longer exposures, whatever style you use. More light brings back 30 fps. Face detail settings above Off also cost frames; see <a href="#adjust">Speed</a>.</p>
+    <h3>The swapped face looks soft</h3>
+    <p>The swap model works at 128 × 128 pixels. Turn on <strong>Face detail: Enhanced</strong> or <strong>Best</strong>, and raise <strong>Sharpness</strong> on the Face page.</p>
+    <h3>My uploaded photo was rejected</h3>
+    <p>Use a clear, front-facing photo with one person, where the face fills a good part of the frame. FaceSwap says why it skipped a photo: no face, several faces, a face that’s too small, or a turned head.</p>
+
+    <!-- Privacy -->
+    <h2 id="privacy">Privacy and licences</h2>
+    <p>FaceSwap processes every frame on your Mac. There’s no account, no analytics and no cloud processing. The only network requests are the optional update check, which reads a small version file, and the model downloads you start yourself.</p>
+    <p>The face models keep their upstream terms, which is why they’re downloaded separately:</p>
+    <ul>
+      <li><strong>Face swap models</strong> (InsightFace): non-commercial use only.</li>
+      <li><strong>Face parser</strong> (trained on CelebAMask-HQ): research use only.</li>
+      <li><strong>GPEN</strong>: no licence published upstream; personal testing only.</li>
+      <li><strong>GFPGAN</strong>: includes third-party parts under their own terms; personal testing only.</li>
+    </ul>
+    <div class="note"><p><strong>Be decent with it.</strong> FaceSwap is made for privacy and fun. Don’t use a swap to deceive or impersonate a real person. The <em>Altered</em> label is there for when you want to be open about it.</p></div>
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>FaceSwap · made for Mac, iPad and iPhone</span>
+    <span><a href="index.html">Home</a> · <a href="https://github.com/mrlynn/FaceSwap-app/releases/latest">Download</a> · <a href="https://github.com/mrlynn/FaceSwap-app">GitHub</a></span>
+  </div>
+</footer>
+
+<script>
+  // Highlight the section in view
+  const links = [...document.querySelectorAll('.toc a')];
+  const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(a => a.classList.remove('active'));
+        map.get(e.target.id)?.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-80px 0px -70% 0px' });
+  document.querySelectorAll('.doc h2[id]').forEach(h => io.observe(h));
+  // Collapse the contents list on small screens
+  if (matchMedia('(max-width: 920px)').matches) document.getElementById('toc-details').open = false;
+</script>
+</body>
+</html>
