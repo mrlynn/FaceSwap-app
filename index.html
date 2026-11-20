@@ -23,6 +23,7 @@
     <div class="nav-links">
       <a class="hide-sm" href="#styles">Styles</a>
       <a class="hide-sm" href="#camera">Virtual camera</a>
+      <a class="hide-sm" href="#borrow">Borrow a face</a>
       <a class="hide-sm" href="#features">Features</a>
       <a href="docs.html">Guide</a>
       <a class="btn btn-primary btn-sm" href="#download">Download</a>
@@ -124,6 +125,78 @@
       </div>
       <div class="meet-bar"><span>Mute</span><span class="on">Camera: FaceSwap Camera</span><span>Share</span></div>
     </div>
+  </div>
+</section>
+
+<section id="borrow">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Borrow a face</div>
+      <h2>Wear a face <em>from the call</em>.</h2>
+      <p>Like your colleague’s look? Borrow it. Point FaceSwap at the meeting window, click a face, and a moment later you’re wearing it in the same call. Ask them first, and borrow from people who’ll enjoy the joke.</p>
+    </div>
+    <div class="borrow" id="borrow-demo" data-step="1">
+      <ol class="borrow-steps" aria-label="How borrowing works">
+        <li><button type="button" data-go="1" aria-current="step"><span class="n">1</span><span><strong>Open the ••• menu</strong>Choose <em>Borrow a Face From a Call…</em> in FaceSwap.</span></button></li>
+        <li><button type="button" data-go="2"><span class="n">2</span><span><strong>Pick the meeting window</strong>macOS’s own window picker opens. FaceSwap takes one picture of that window, never a recording.</span></button></li>
+        <li><button type="button" data-go="3"><span class="n">3</span><span><strong>Click a face</strong>Every face in the picture is offered. Speaker view works best.</span></button></li>
+        <li><button type="button" data-go="4"><span class="n">4</span><span><strong>You’re wearing it</strong>Through FaceSwap Camera, live, marked “Altered” for as long as you wear it.</span></button></li>
+      </ol>
+
+      <div class="borrow-stage" aria-hidden="true">
+        <div class="call">
+          <div class="call-top"><i></i><i></i><i></i><span>Design review</span><b>00:14:32</b></div>
+          <div class="call-grid">
+            <div class="call-tile you">
+              <img class="before" src="img/borrow-you.jpg" alt="" loading="lazy">
+              <img class="after" src="img/borrow-after.jpg" alt="" loading="lazy">
+              <em class="altered">Altered</em>
+              <b>You · FaceSwap Camera</b>
+            </div>
+            <div class="call-tile lender"><img src="img/faces/tousled-haired-man-in-studio-light-4.jpg" alt="" loading="lazy"><b>Leo</b></div>
+            <div class="call-tile"><img src="img/faces/freckled-east-asian-woman-portrait-1.jpg" alt="" loading="lazy"><b>Mina</b></div>
+            <div class="call-tile"><img src="img/faces/serene-portrait-with-silver-hoops-5.jpg" alt="" loading="lazy"><b>Aiko</b></div>
+          </div>
+          <div class="call-bar"><span>Mute</span><span>Stop Video</span><span>Participants</span><span>Share</span><span class="leave">Leave</span></div>
+        </div>
+
+        <!-- 1: FaceSwap's ••• menu -->
+        <div class="b-menu">
+          <div class="b-more">•••</div>
+          <ul>
+            <li>Choose File…</li>
+            <li>Mark Swapped Video “Altered”</li>
+            <li>Add a Shared Look…</li>
+            <li class="hi">Borrow a Face From a Call…</li>
+            <li>Settings…</li>
+          </ul>
+        </div>
+
+        <!-- 2: the system window picker -->
+        <div class="b-pick"><span>Share this window with FaceSwap</span></div>
+
+        <!-- 3: faces found -->
+        <div class="b-sheet">
+          <strong>Borrow a face</strong>
+          <small>Click the face to wear.</small>
+          <div class="b-faces">
+            <img src="img/borrow-you.jpg" alt="" loading="lazy">
+            <img class="pick" src="img/faces/tousled-haired-man-in-studio-light-4.jpg" alt="" loading="lazy">
+            <img src="img/faces/freckled-east-asian-woman-portrait-1.jpg" alt="" loading="lazy">
+            <img src="img/faces/serene-portrait-with-silver-hoops-5.jpg" alt="" loading="lazy">
+          </div>
+          <small class="fine">A borrowed face is a loan: it can’t be saved or shared.</small>
+        </div>
+        <svg class="b-cursor" viewBox="0 0 24 24"><path d="M3 2l17 9.5-7.4 1.6L9 20z" fill="#fff" stroke="#1d1c1a" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+
+    <ul class="borrow-notes">
+      <li><strong>One picture, then gone.</strong> FaceSwap reads the faces from a single screenshot of the window you chose and drops it straight away. Nothing is watched in the background.</li>
+      <li><strong>A loan, not a keepsake.</strong> The face lasts until you pick another or quit. It can’t be saved to your gallery or kept as a look.</li>
+      <li><strong>Always marked.</strong> While you wear a borrowed face, your picture carries an “Altered” label, whatever your settings say.</li>
+    </ul>
+    <p class="borrow-req">Borrowing uses Swap, so it needs the separately licensed Swap models. <a href="docs.html#borrow">How it works →</a></p>
   </div>
 </section>
 
@@ -270,6 +343,27 @@
     i.src = 'img/faces/' + f + '.jpg'; i.alt = ''; i.loading = 'lazy';
     track.appendChild(i);
   });
+
+  // Borrow a face walkthrough: plays itself while on screen, and any step can be clicked.
+  (() => {
+    const demo = document.getElementById('borrow-demo');
+    if (!demo) return;
+    const buttons = demo.querySelectorAll('[data-go]');
+    let step = 1, timer = null, resume = null;
+    const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const show = n => {
+      step = n;
+      demo.dataset.step = n;
+      buttons.forEach(b => b.setAttribute('aria-current', +b.dataset.go === n ? 'step' : 'false'));
+    };
+    const play = () => { if (!timer && !still) timer = setInterval(() => show(step % 4 + 1), 3400); };
+    const stop = () => { clearInterval(timer); timer = null; };
+    buttons.forEach(b => b.addEventListener('click', () => {
+      stop(); clearTimeout(resume); show(+b.dataset.go);
+      resume = setTimeout(play, 12000);
+    }));
+    new IntersectionObserver(([e]) => e.isIntersecting ? play() : stop(), { threshold: .35 }).observe(demo);
+  })();
 </script>
 </body>
 </html>
