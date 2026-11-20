@@ -94,6 +94,7 @@ code { font: .88em ui-monospace, SFMono-Regular, Menlo, monospace; background: v
 .hero { padding: 72px 0 40px; overflow: hidden; }
 .hero-grid { display: grid; grid-template-columns: 1.02fr 1fr; gap: 56px; align-items: center; }
 @media (max-width: 920px) { .hero-grid { grid-template-columns: 1fr; gap: 40px; } }
+@media (max-width: 640px) { .hero { padding-top: 24px; } .hero-grid { gap: 28px; } .hero-grid > :last-child { order: -1; } }
 .eyebrow { display: inline-flex; align-items: center; gap: 8px; font: 600 13px/1 var(--sans); letter-spacing: .08em; text-transform: uppercase; color: var(--rust); margin-bottom: 18px; }
 .eyebrow::before { content: ""; width: 22px; height: 2px; background: currentColor; border-radius: 2px; }
 h1, h2, h3 { font-family: var(--serif); font-weight: 600; letter-spacing: -.02em; line-height: 1.08; margin: 0; }
