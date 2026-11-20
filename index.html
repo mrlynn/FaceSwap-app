@@ -70,6 +70,22 @@
   </div>
 </section>
 
+<section id="watch">
+  <div class="wrap watch">
+    <div class="section-head">
+      <div class="eyebrow">Watch</div>
+      <h2>FaceSwap in <em>25 seconds</em>.</h2>
+      <p>Swap a face, hide one three ways, pick from the gallery, and borrow a face from the call.</p>
+    </div>
+    <div class="film">
+      <video id="film" controls playsinline preload="none" poster="video/faceswap.jpg" width="1920" height="1080">
+        <source media="(max-width: 640px)" src="video/faceswap-vertical.mp4" type="video/mp4">
+        <source src="video/faceswap.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+
 <section id="styles" class="band">
   <div class="wrap">
     <div class="section-head">
@@ -363,6 +379,14 @@
       resume = setTimeout(play, 12000);
     }));
     new IntersectionObserver(([e]) => e.isIntersecting ? play() : stop(), { threshold: .35 }).observe(demo);
+  })();
+
+  // Film: the vertical cut and its poster on phones
+  (() => {
+    const v = document.getElementById('film');
+    if (v && matchMedia('(max-width: 640px)').matches) {
+      v.poster = 'video/faceswap-vertical.jpg'; v.width = 1080; v.height = 1920;
+    }
   })();
 </script>
 </body>
