@@ -5,9 +5,10 @@ FaceSwap is a native Mac app that blurs, pixelates, blacks out or swaps faces in
 **Website and guide:** https://macfaceswap.com/
 
 <p align="center">
-  <a href="https://macfaceswap.com/video/faceswap-vertical.mp4"><img src="video/faceswap-vertical.jpg" width="320" alt="FaceSwap launch film: a man's face is swapped for a woman's with a before/after slider. Click to play the 25-second video."></a>
+  <a href="https://macfaceswap.com/video/faceswap.mp4"><img src="video/faceswap.jpg" width="560" height="315" alt="FaceSwap launch film, landscape: a man's face is swapped for a woman's with a before/after slider. Click to play the 25-second video."></a>
+  <a href="https://macfaceswap.com/video/faceswap-vertical.mp4"><img src="video/faceswap-vertical.jpg" width="177" height="315" alt="FaceSwap launch film, vertical cut for phones. Click to play the 25-second video."></a>
   <br>
-  <a href="https://macfaceswap.com/video/faceswap-vertical.mp4"><b>▶ Watch the 25-second film</b></a>
+  <b>▶ Watch the 25-second film:</b> <a href="https://macfaceswap.com/video/faceswap.mp4">landscape</a> · <a href="https://macfaceswap.com/video/faceswap-vertical.mp4">vertical</a>
 </p>
 
 ## Download
